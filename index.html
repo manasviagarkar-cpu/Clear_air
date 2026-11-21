@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClearAir — Make the next clean-air choice</title>
+    <meta
+      name="description"
+      content="Calm, practical daily air-quality guidance for families navigating winter smog and urban air pollution."
+    />
+    <meta property="og:title" content="ClearAir — Make the next clean-air choice" />
+    <meta
+      property="og:description"
+      content="Calm, practical daily air-quality guidance for families navigating winter smog and urban air pollution."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" href="./styles.css" as="style" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="header-top">
+          <div class="brand">
+            <svg
+              class="brand-mark"
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+              aria-hidden="true"
+            >
+              <rect x="1" y="1" width="34" height="34" rx="8" fill="#EDF4EF" stroke="#B9CEBF" />
+              <path
+                d="M8 15.5C11.5 15.5 13 12 16.5 12C20 12 21.5 15.5 25 15.5C26.4 15.5 27.3 15 28 14.3"
+                stroke="#3A6B4C"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M8 21C12 21 14 18 18 18C22 18 24 21 28 21"
+                stroke="#234832"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M11 25.5C14 25.5 16 24 19 24C22 24 23.5 25.5 26 25.5"
+                stroke="#6C8F77"
+                stroke-width="1.75"
+                stroke-linecap="round"
+              />
+            </svg>
+            <div class="brand-text">
+              <h1 class="brand-name">ClearAir</h1>
+              <p class="brand-tagline">Make the next clean-air choice.</p>
+            </div>
+          </div>
+
+          <div class="header-meta">
+            <p class="meta-line">Demo snapshot · Illustrative values</p>
+            <p class="privacy-note">Your household answers stay in this browser session.</p>
+          </div>
+        </div>
+
+        <p class="header-intro">
+          Smog changes the best choice hour by hour. ClearAir turns today’s conditions and your
+          household context into practical next steps.
+        </p>
+      </div>
+    </header>
+
+    <main id="main-content" class="container main-content" tabindex="-1">
+      <!-- 1. Current Air-Quality Context -->
+      <section class="card context-section" aria-labelledby="context-heading">
+        <div class="section-header context-header">
+          <div>
+            <p class="section-kicker">Demo data · Illustrative city conditions</p>
+            <h2 id="context-heading">Current air-quality context</h2>
+          </div>
+
+          <div class="city-switcher">
+            <label for="context-city-select">Location</label>
+            <select id="context-city-select" name="contextCity">
+              <option value="Delhi">Delhi</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Bengaluru">Bengaluru</option>
+              <option value="London">London</option>
+              <option value="New York">New York</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="aqi-summary-grid">
+          <div class="severity-panel" id="aq-severity-panel">
+            <span class="severity-eyebrow">Air-quality status</span>
+            <div class="severity-row">
+              <span class="severity-indicator" id="aq-severity-badge">
+                <span class="severity-symbol" id="aq-severity-symbol" aria-hidden="true">!</span>
+                <span id="aq-severity-text">Severity: Severe</span>
+              </span>
+            </div>
+            <p class="aq-interpretation" id="aq-interpretation">
+              Fine particles are high today. Limit unnecessary outdoor exposure, especially during
+              stagnant traffic hours.
+            </p>
+          </div>
+
+          <dl class="metrics-grid" aria-label="Illustrative air-quality readings">
+            <div class="metric-item">
+              <dt>AQI</dt>
+              <dd class="metric-value" id="aq-aqi">286</dd>
+            </div>
+            <div class="metric-item">
+              <dt>PM2.5</dt>
+              <dd class="metric-value" id="aq-pm25">168 µg/m³</dd>
+            </div>
+            <div class="metric-item">
+              <dt>PM10</dt>
+              <dd class="metric-value" id="aq-pm10">241 µg/m³</dd>
+            </div>
+            <div class="metric-item">
+              <dt>Temperature</dt>
+              <dd class="metric-value" id="aq-temp">14°C</dd>
+            </div>
+            <div class="metric-item">
+              <dt>Wind</dt>
+              <dd class="metric-value" id="aq-wind">Calm</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- 2. Household Profile + Personalized Daily Plan -->
+      <div class="workspace-grid">
+        <section class="card form-section" aria-labelledby="profile-heading">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Step 1 · Household profile</p>
+              <h2 id="profile-heading">Your household context</h2>
+            </div>
+          </div>
+
+          <p class="section-subcopy">
+            No names, addresses, or health records are collected. Adjust any detail to see how
+            recommendations shift.
+          </p>
+
+          <form id="household-form" novalidate>
+            <div
+              id="form-error-summary"
+              class="error-banner"
+              role="alert"
+              tabindex="-1"
+              hidden
+            ></div>
+
+            <div class="form-field">
+              <label for="household-city">City or location</label>
+              <select
+                id="household-city"
+                name="city"
+                required
+                aria-describedby="hint-city error-city"
+              >
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bengaluru">Bengaluru</option>
+                <option value="London">London</option>
+                <option value="New York">New York</option>
+              </select>
+              <p class="field-hint" id="hint-city">
+                Synced with the illustrative air-quality panel above.
+              </p>
+              <p class="field-error" id="error-city" hidden></p>
+            </div>
+
+            <fieldset
+              class="form-fieldset"
+              id="fieldset-householdSize"
+              aria-required="true"
+              aria-describedby="error-householdSize"
+            >
+              <legend>Household size</legend>
+              <div class="choice-grid choice-grid-3">
+                <label class="choice-option">
+                  <input type="radio" name="householdSize" value="1–2 people" required />
+                  <span>1–2 people</span>
+                </label>
+                <label class="choice-option">
+                  <input type="radio" name="householdSize" value="3–4 people" checked />
+                  <span>3–4 people</span>
+                </label>
+                <label class="choice-option">
+                  <input type="radio" name="householdSize" value="5+ people" />
+                  <span>5+ people</span>
+                </label>
+              </div>
+              <p class="field-error" id="error-householdSize" hidden></p>
+            </fieldset>
+
+            <fieldset
+              class="form-fieldset"
+              id="fieldset-sensitivities"
+              aria-required="true"
+              aria-describedby="hint-sensitivities error-sensitivities"
+            >
+              <legend>Household sensitivities</legend>
+              <p class="field-hint" id="hint-sensitivities">
+                Select everyone who regularly shares your home. Choosing “None of these” clears
+                other selections.
+              </p>
+              <div class="choice-stack">
+                <label class="choice-option">
+                  <input type="checkbox" name="sensitivities" value="Child under 12" checked />
+                  <span>Child under 12</span>
+                </label>
+                <label class="choice-option">
+                  <input type="checkbox" name="sensitivities" value="Older adult" />
+                  <span>Older adult</span>
+                </label>
+                <label class="choice-option">
+                  <input
+                    type="checkbox"
+                    name="sensitivities"
+                    value="Asthma or respiratory sensitivity"
+                  />
+                  <span>Asthma or respiratory sensitivity</span>
+                </label>
+                <label class="choice-option">
+                  <input
+                    type="checkbox"
+                    name="sensitivities"
+                    value="Heart or cardiovascular sensitivity"
+                  />
+                  <span>Heart or cardiovascular sensitivity</span>
+                </label>
+                <label class="choice-option">
+                  <input type="checkbox" name="sensitivities" value="None of these" />
+                  <span>None of these</span>
+                </label>
+              </div>
+              <p class="field-error" id="error-sensitivities" hidden></p>
+            </fieldset>
+
+            <div class="form-row-2">
+              <div class="form-field">
+                <label for="main-travel">Main daily travel</label>
+                <select
+                  id="main-travel"
+                  name="travelMode"
+                  required
+                  aria-describedby="error-travelMode"
+                >
+                  <option value="Walk">Walk</option>
+                  <option value="Cycle">Cycle</option>
+                  <option value="Public transit">Public transit</option>
+                  <option value="Private car" selected>Private car</option>
+                  <option value="Two-wheeler">Two-wheeler</option>
+                  <option value="Work from home">Work from home</option>
+                </select>
+                <p class="field-error" id="error-travelMode" hidden></p>
+              </div>
+
+              <div class="form-field">
+                <label for="outdoor-activity">Typical outdoor activity</label>
+                <select
+                  id="outdoor-activity"
+                  name="outdoorTime"
+                  required
+                  aria-describedby="hint-outdoorTime error-outdoorTime"
+                >
+                  <option value="Early morning" selected>Early morning</option>
+                  <option value="Midday">Midday</option>
+                  <option value="Evening">Evening</option>
+                  <option value="Flexible">Flexible</option>
+                </select>
+                <p class="field-hint" id="hint-outdoorTime">
+                  When your household is usually outdoors.
+                </p>
+                <p class="field-error" id="error-outdoorTime" hidden></p>
+              </div>
+            </div>
+
+            <fieldset
+              class="form-fieldset"
+              id="fieldset-indoor"
+              aria-required="true"
+              aria-describedby="hint-indoor error-indoor"
+            >
+              <legend>Indoor environment</legend>
+              <p class="field-hint" id="hint-indoor">
+                Select all conditions that apply to your home. Choosing “Not sure” clears other
+                selections.
+              </p>
+              <div class="choice-stack">
+                <label class="choice-option">
+                  <input type="checkbox" name="indoor" value="Air purifier available" />
+                  <span>Air purifier available</span>
+                </label>
+                <label class="choice-option">
+                  <input type="checkbox" name="indoor" value="Windows can be closed" checked />
+                  <span>Windows can be closed</span>
+                </label>
+                <label class="choice-option">
+                  <input type="checkbox" name="indoor" value="Mechanical ventilation available" />
+                  <span>Mechanical ventilation available</span>
+                </label>
+                <label class="choice-option">
+                  <input type="checkbox" name="indoor" value="Cooking with gas" />
+                  <span>Cooking with gas</span>
+                </label>
+                <label class="choice-option">
+                  <input type="checkbox" name="indoor" value="Not sure" />
+                  <span>Not sure</span>
+                </label>
+              </div>
+              <p class="field-error" id="error-indoor" hidden></p>
+            </fieldset>
+
+            <fieldset
+              class="form-fieldset"
+              id="fieldset-priority"
+              aria-required="true"
+              aria-describedby="error-priority"
+            >
+              <legend>Main priority</legend>
+              <div class="choice-grid choice-grid-2">
+                <label class="choice-option">
+                  <input type="radio" name="priority" value="Lowest exposure" required />
+                  <span>Lowest exposure</span>
+                </label>
+                <label class="choice-option">
+                  <input type="radio" name="priority" value="Lowest emissions" />
+                  <span>Lowest emissions</span>
+                </label>
+                <label class="choice-option">
+                  <input type="radio" name="priority" value="Lowest cost" />
+                  <span>Lowest cost</span>
+                </label>
+                <label class="choice-option">
+                  <input type="radio" name="priority" value="Balanced option" checked />
+                  <span>Balanced option</span>
+                </label>
+              </div>
+              <p class="field-error" id="error-priority" hidden></p>
+            </fieldset>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-primary" id="build-plan-btn">
+                Build my clean-air plan
+              </button>
+              <button type="button" class="btn-secondary" id="reset-profile-btn">
+                Reset defaults
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Personalized Daily Plan -->
+        <section
+          id="plan-section"
+          class="card plan-section"
+          aria-labelledby="plan-heading"
+          tabindex="-1"
+        >
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Step 2 · Personalized guidance</p>
+              <h2 id="plan-heading">Personalized daily plan</h2>
+            </div>
+            <span class="plan-count" id="plan-count">5 steps</span>
+          </div>
+
+          <div
+            id="plan-live-region"
+            class="sr-only"
+            aria-live="polite"
+            aria-atomic="true"
+          ></div>
+
+          <div id="plan-safety-banner" class="caution-callout" hidden>
+            <strong id="plan-safety-title">Extra caution for sensitive household members</strong>
+            <p id="plan-safety-text"></p>
+          </div>
+
+          <ol id="plan-list" class="plan-list" role="list"></ol>
+        </section>
+      </div>
+
+      <!-- Decision Transparency -->
+      <section class="card transparency-section" aria-labelledby="why-heading">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Decision transparency</p>
+            <h2 id="why-heading">Why this plan?</h2>
+          </div>
+        </div>
+
+        <div class="why-copy">
+          <p class="why-summary" id="why-priority-summary"></p>
+          <p class="why-tradeoff" id="why-tradeoff-summary"></p>
+        </div>
+
+        <h3 class="subheading">Signals used for these recommendations</h3>
+        <dl id="signals-list" class="signals-grid"></dl>
+      </section>
+
+      <!-- 3. Ask ClearAir Assistant -->
+      <section class="card assistant-section" aria-labelledby="assistant-heading">
+        <div class="section-header assistant-header">
+          <div>
+            <p class="section-kicker">Demo reasoning mode · Deterministic local guidance</p>
+            <h2 id="assistant-heading">Ask ClearAir</h2>
+          </div>
+        </div>
+
+        <p class="section-subcopy">
+          Ask a practical question about outdoor timing, children’s play, windows, commuting, or
+          bedroom air. Responses use your current city and household settings.
+        </p>
+
+        <div class="quick-questions" role="group" aria-label="Quick questions">
+          <button type="button" class="quick-btn" data-question="Can my child play outside today?">
+            Can my child play outside today?
+          </button>
+          <button type="button" class="quick-btn" data-question="Should I open the windows?">
+            Should I open the windows?
+          </button>
+          <button
+            type="button"
+            class="quick-btn"
+            data-question="What is the lowest-emission commute?"
+          >
+            What is the lowest-emission commute?
+          </button>
+          <button type="button" class="quick-btn" data-question="How can I improve bedroom air?">
+            How can I improve bedroom air?
+          </button>
+        </div>
+
+        <form id="assistant-form" class="assistant-form" novalidate>
+          <div class="form-field">
+            <div class="label-row">
+              <label for="assistant-input">Your question</label>
+              <span class="char-count" id="assistant-char-count" aria-hidden="true">0 / 300</span>
+            </div>
+            <span class="sr-only" id="assistant-hint">
+              Maximum 300 characters. Uses your selected city and household profile.
+            </span>
+            <span class="sr-only" id="assistant-char-status" aria-live="polite"></span>
+            <textarea
+              id="assistant-input"
+              name="question"
+              rows="3"
+              maxlength="300"
+              placeholder="Example: Is midday safer than early morning for a short walk?"
+              aria-describedby="assistant-hint assistant-error"
+            ></textarea>
+            <p id="assistant-error" class="field-error" role="alert" hidden></p>
+          </div>
+          <div class="assistant-actions">
+            <button type="submit" class="btn-primary" id="ask-btn">Ask</button>
+          </div>
+        </form>
+
+        <div
+          id="assistant-output"
+          class="assistant-output"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <p class="assistant-empty" id="assistant-empty">
+            Choose a quick question above or type your own to see context-based reasoning.
+          </p>
+        </div>
+      </section>
+
+      <!-- 4. Sustainable Alternatives -->
+      <section class="card alternatives-section" aria-labelledby="alternatives-heading">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Lower-emission shifts</p>
+            <h2 id="alternatives-heading">Sustainable alternatives</h2>
+          </div>
+        </div>
+        <p class="section-subcopy">
+          Practical ways to lower both personal particle exposure and local winter emissions, with
+          honest day-to-day tradeoffs.
+        </p>
+        <div id="alternatives-grid" class="alternatives-grid"></div>
+      </section>
+
+      <!-- 5. Safety Note -->
+      <section class="safety-section" aria-labelledby="safety-heading">
+        <h2 id="safety-heading">Safety note &amp; demo boundaries</h2>
+        <p>
+          This tool provides educational guidance, not medical advice. Children, older adults, and
+          people with asthma, heart disease, or breathing problems may need more cautious choices.
+          Seek urgent medical help for serious breathing difficulty, chest pain, fainting, or severe
+          wheezing.
+        </p>
+        <p class="demo-disclaimer">
+          Demo pollution values are illustrative and should not replace official local air-quality
+          guidance.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>ClearAir · Public-service air-quality guidance prototype</p>
+        <p>Session-only memory · No accounts, no tracking, no personal records stored</p>
+      </div>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

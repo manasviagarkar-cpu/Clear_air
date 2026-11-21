@@ -1,0 +1,20 @@
+{
+  "name": "clearair",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node test.js",
+    "lint": "tsc --noEmit",
+    "lint:eslint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.15.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "ClearAir",
+  "description": "Calm, practical daily air-quality guidance for families navigating winter smog and urban air pollution.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
